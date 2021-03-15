@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>Weight (kg)</td>
+      <td>  
+        <input type="number" id = "weight">
+      </td>
+    </tr>
+    
+    <tr>
+      <td>Height (m)</td>
+      <td>  
+        <input type="number" id = "height">
+      </td>
+    </tr>
+    
+    <tr>
+      <td>  
+        <button type="button" onclick="check()">Check</button>
+    </tr>
+  </table>
+  
+  <p id = "price"></p>
+  
+  <script>
+    function check() {
+      let weight = Number(document.getElementById("weight").value)
+      let height = Number(document.getElementById("height").value)
+
+      let bmi = weight / (height * height)
+      let price
+
+      if (bmi <= 0) {
+        price = "Ban da nhap sai chieu cao hoac can nang. Hay nhap lai !"
+      }
+      else if (0 < bmi < 16) {
+        price = "Gay do III"
+      } 
+      else if (16 <= bmi < 17) {
+        price = "Gay do II"
+      } 
+      else if (17 <= bmi < 18.5) {
+        price = "Gay do I"
+      } 
+      else if (18.5 <= bmi < 25) {
+        price = "Binh thuong"
+      } 
+      else if (25 <= bmi < 30) {
+        price = "Thua can"
+      } 
+      else if  (30 <= bmi < 35) {
+        price = "Beo phi do I"
+      }
+      else if (35 <= bmi < 40) {
+        price = "Beo phi do II"
+      } 
+      else if (bmi > 40) {
+        price = "Beo phi do II"
+      } 
+      document.getElementById("price").innerHTML = price
+    }
+  </script>
+
+</body>
+</html>
